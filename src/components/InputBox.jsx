@@ -6,8 +6,6 @@ const InputBox = (props) => {
   const textAreaRef = useRef()
 
   const handleChange = (e) => {
-    console.log(e.target.scrollHeight) 
-    // 24 per, 31 start
     textAreaRef.current.style.height = "auto";
     textAreaRef.current.style.height = textAreaRef.current.scrollHeight + "px";
   }
