@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Message from "./components/Message";
+import MyCat from "./pages/MyCat";
 
 const App = () => {
   const [errCat, setErrCat] = useState('');
@@ -10,7 +11,8 @@ const App = () => {
           method: 'GET',
           headers: {
             'Content-Type': "application/json",
-            'x-api-key': import.meta.env.THECATAPI_API_KEY
+            'x-api-key': import.meta.env.THECATAPI_API_KEY,
+            'category-ids': 14
           },
         });
       
@@ -26,7 +28,7 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div className="centered">
       <button onClick={getCat}>CAT!!</button>
       { errCat && <img src={errCat}></img>}
       {goodCat.map((item, idx) => {
@@ -34,6 +36,7 @@ const App = () => {
         <Message key={item.id} id={item.id} sender='cat' content={item.url}/>
         )
       })}
+      <MyCat />
 
 
     </div>

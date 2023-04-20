@@ -14,9 +14,11 @@ body {
 }
 
 .centered {
-  margin: 3rem auto;
+  margin: 0 auto;
   text-align: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 600px;
 }

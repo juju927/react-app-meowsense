@@ -4,12 +4,14 @@ import styles from './ProfilePic.module.css'
 const ProfilePic = (props) => {
   return (
     <>
+      {props.type == 'chatpfp' ? 
       <img 
-        className={ styles['profilepic'] } 
-        src={props.img}
-        style={`width:${props.width};height:${props.height}`}
-      />
-      <h1>hi this pfp compo</h1>
+      className={ styles['chatpfp'] } 
+      src={props.img}/> :
+      <img 
+      className={ styles['chatlistpfp'] }
+      src={props.img} />}
+
     </>
   )
 }

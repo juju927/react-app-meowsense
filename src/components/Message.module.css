@@ -1,9 +1,15 @@
 .messageBubble {
   display: flex;
   width: fit-content;
+  border-radius: 5px;
   max-width: 90%;
   padding: 1rem;
   margin: 0.3rem;
   background-color: lavender;
   color: black;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 5px;
 }

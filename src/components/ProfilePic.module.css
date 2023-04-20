@@ -1,5 +1,17 @@
-.profilepic {
+.chatpfp {
   display: block;
   border-radius: 50%;
-  border: 2.5px solid black;
+  margin: 0 auto;
+  border: none;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.chatlistpfp {
+  display: inline-block;
+  border-radius: 50%;
+  border: none;
+  width: 75px;
+  height: 75px;
 }
