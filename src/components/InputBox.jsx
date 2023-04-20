@@ -16,7 +16,7 @@ const InputBox = (props) => {
       ref={textAreaRef}
       placeholder='Write a message...'
       rows={1}
-      maxlength="500"
+      maxLength="500"
       onChange={handleChange}
       ></textarea>
       <button className={ styles['sendbutton'] }><img src={sendButton} ></img></button>
