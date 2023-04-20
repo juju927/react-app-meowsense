@@ -11,6 +11,8 @@ html {
 body {
   margin: 0;
   background-color: black;
+  user-select: none;
+  -moz-user-select: none;
 }
 
 .centered {
@@ -20,5 +22,5 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 600px;
+  width: 560px;
 }
