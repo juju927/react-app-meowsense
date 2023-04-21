@@ -22,7 +22,8 @@ const MyCat = (props) => {
     {'sender': 'cat',
     'type': 'img',
     'content': 'https://images.unsplash.com/photo-1529778873920-4da4926a72c2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3V0ZSUyMGNhdHxlbnwwfHwwfHw%3D&w=1000&q=80'}])
-
+   
+    
   return (
     <div className={ styles['fullscreen'] }>
       <div className='container'>
@@ -34,11 +35,9 @@ const MyCat = (props) => {
       </div>
 
       <div className='container'>
-        <InputBox />
+        <InputBox setChatlogs={setChatlogs} />
       </div>
     </div>
-
-
   )
 }
 

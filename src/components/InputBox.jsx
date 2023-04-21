@@ -10,6 +10,15 @@ const InputBox = (props) => {
     textAreaRef.current.style.height = textAreaRef.current.scrollHeight + "px";
   }
 
+  const handleClick = () => {
+    props.setChatlogs(currentLog => 
+      [...currentLog, 
+        {'sender': 'user', 'type': 'text', 'content': textAreaRef.current.value}])
+    textAreaRef.current.value = null;
+  }
+
+
+
   return (
     <div className={ styles['userinputarea'] }>
       <textarea className={ styles['textarea']} 
@@ -19,7 +28,7 @@ const InputBox = (props) => {
       maxLength="500"
       onChange={handleChange}
       ></textarea>
-      <button className={ styles['sendbutton'] }><img className={ styles['paw-button-img'] } src={sendButton} ></img></button>
+      <button className={ styles['sendbutton'] } onClick={handleClick}><img className={ styles['paw-button-img'] } src={sendButton} ></img></button>
     </div>
 
   )
