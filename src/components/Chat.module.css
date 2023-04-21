@@ -1,5 +1,6 @@
 .chatarea {
   height: 100%;
+  overflow: scroll;
   background-color: #FFF4D2;
   padding: 5px;
 }

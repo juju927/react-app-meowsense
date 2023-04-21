@@ -6,11 +6,12 @@ const Message = (props) => {
   // /ᐠ. ｡.ᐟ\ᵐᵉᵒʷˎˊ˗
 
   return (
-    <div className={ styles.messageBubble }>
-      { props.sender == 'user' ? 
-      `${props.content}` : 
-      <img src={props.content}></img> }
-      {/* /ᐠ. ｡.ᐟ\ᵐᵉᵒʷˎˊ˗ */}
+    <div className={ styles['message-container']}>
+      <div className={`${(props.sender == 'user') ? styles['userMessage'] : styles['catMessage']} ${ (props.type == 'img') ? styles['imgMessage'] : styles['textMessage']}`}> 
+        {props.type == 'text' ? 
+        props.content :
+        <img className={styles['message-img']} src={props.content}></img>}
+      </div>    
     </div>
   )
 }

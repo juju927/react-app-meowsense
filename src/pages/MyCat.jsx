@@ -12,9 +12,16 @@ const MyCat = (props) => {
     'desc': 'does not understand you'
   }
 
-  const [chatlogs, setChatlogs] = useState([{
-    'sender': 'user',
-    'content': '/ᐠ. ｡.ᐟ\\ᵐᵉᵒʷˎˊ˗'}])
+  const [chatlogs, setChatlogs] = useState([
+    {'sender': 'cat',
+    'type': 'text',
+    'content': '/ᐠ. ｡.ᐟ\\ᵐᵉᵒʷˎˊ˗'},
+    {'sender': 'user',
+    'type': 'text',
+    'content': 'dum cat'},
+    {'sender': 'cat',
+    'type': 'img',
+    'content': 'https://images.unsplash.com/photo-1529778873920-4da4926a72c2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3V0ZSUyMGNhdHxlbnwwfHwwfHw%3D&w=1000&q=80'}])
 
   return (
     <div className={ styles['fullscreen'] }>

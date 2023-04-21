@@ -7,7 +7,7 @@ const Chat = (props) => {
   <div className={ styles['chatarea'] } >
   {props.chatlogs.map((item, idx) => {
     return(
-      <Message key={idx} sender={item.sender} content={item.content} />
+      <Message key={idx} sender={item.sender} type={item.type} content={item.content} />
     )
   })}
   </div>

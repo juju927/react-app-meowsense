@@ -19,7 +19,7 @@ const InputBox = (props) => {
       maxLength="500"
       onChange={handleChange}
       ></textarea>
-      <button className={ styles['sendbutton'] }><img src={sendButton} ></img></button>
+      <button className={ styles['sendbutton'] }><img className={ styles['paw-button-img'] } src={sendButton} ></img></button>
     </div>
 
   )

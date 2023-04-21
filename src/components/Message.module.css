@@ -1,16 +1,43 @@
-.messageBubble {
+.message-container {
   display: flex;
+  width: 100%;
+  height: fit-content;
+}
+
+.textMessage {
+  /* display: flex; */
   width: fit-content;
   height: fit-content;
   border-radius: 5px;
   max-width: 90%;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   margin: 0.3rem;
   background-color: lavender;
   color: black;
 }
 
-img {
+.imgMessage {
+  /* display: flex; */
+  width: fit-content;
+  height: fit-content;
+  border-radius: 5px;
+  max-width: 90%;
+  padding: 0.1rem;
+  margin: 0.3rem;
+  background-color: lavender;
+  color: black;
+}
+
+.userMessage {
+  margin-left: auto;
+}
+
+.catMessage {
+  margin-right: auto;
+}
+
+.message-img {
   max-width: 100%;
+  object-fit: contain;
   border-radius: 5px;
 }
