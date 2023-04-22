@@ -5,7 +5,7 @@ import styles from './Chat.module.css'
 const Chat = (props) => {
   return(
   <div className={ styles['chatarea'] } >
-  {props.chatlogs.map((item, idx) => {
+  {props.chatlog.map((item, idx) => {
     return(
       <Message key={idx} sender={item.sender} type={item.type} content={item.content} />
     )
