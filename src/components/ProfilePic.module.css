@@ -10,8 +10,10 @@
 
 .chatlistpfp {
   display: inline-block;
+  margin-right: 1rem;
   border-radius: 50%;
   border: none;
   width: 75px;
   height: 75px;
+  object-fit: cover;
 }

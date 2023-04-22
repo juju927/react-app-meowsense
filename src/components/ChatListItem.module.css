@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+.chatlist-item-container {
+  display: flex;
+  border-bottom: solid 1px black;
+  padding: 10px 5px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.name {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: left;
+  margin: 0;
+}

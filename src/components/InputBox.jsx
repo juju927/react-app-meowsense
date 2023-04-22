@@ -30,8 +30,7 @@ const InputBox = (props) => {
       props.setChatlog(currentLog => {
         const updatedLog = [...currentLog, {'sender': 'user', 'type': 'text', 'content': textAreaRef.current.value}];
         return updatedLog;
-      })
-      
+      })    
     }
   }
   

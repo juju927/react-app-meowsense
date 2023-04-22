@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react'
 import pfp from '../images/MyCat.png'
 import Header from '../components/Header'
 import InputBox from '../components/InputBox'
-import styles from './MyCat.module.css'
+import styles from './Chatscreen.module.css'
 import Chat from '../components/Chat'
+import backButton from '../images/BackButton.png'
 
 const MyCat = () => {
   const details = {
@@ -60,6 +61,7 @@ const MyCat = () => {
   return (
     <div className={ styles['fullscreen'] }>
       <div className='container'>
+        <button className={ styles['backbutton'] }><img className={ styles['back-button-img'] } src={backButton} /></button>
         <Header name={details['name']} img={details['img']} desc={details['desc']} type='chatpfp' />  
       </div>
 
