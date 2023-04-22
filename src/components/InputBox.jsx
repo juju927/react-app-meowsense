@@ -22,7 +22,6 @@ const InputBox = (props) => {
   }
 
   const handleClick = () => {
-    console.log(newMessage)
     // if text area is filled
     if (textAreaRef.current.value) {
       // newMessage switch to true, to allow useEffect codes to run

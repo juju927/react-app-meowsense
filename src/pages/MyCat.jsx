@@ -28,8 +28,6 @@ const MyCat = () => {
   ])
 
   const getCat = async() => {
-    console.log("im getting a cat")
-    console.log("before get cat chat", chatlog)
     const res = await fetch('https://api.thecatapi.com/v1/images/search', {
           method: 'GET',
           headers: {
