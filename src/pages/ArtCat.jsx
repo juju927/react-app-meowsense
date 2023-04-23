@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import { NavLink } from "react-router-dom"
 import { Configuration, OpenAIApi } from 'openai';
-import pfp from '../images/ArtCat.png'
-import backButton from '../images/BackButton.png'
 import Header from '../components/Header'
 import InputBox from '../components/InputBox'
 import Chat from '../components/Chat'
 import styles from './Chatscreen.module.css'
+import pfp from '../images/ArtCat.png'
+import backButton from '../images/BackButton.png'
 
 const ArtCat = () => {
   const details = {
@@ -23,8 +24,7 @@ const ArtCat = () => {
 
   const getArt = async(prompt) => {
     const configuration = new Configuration({
-      
-      apiKey: import.meta.env.OPENAI_API_KEY,
+      apiKey: import.meta.env.REACT_APP_OPENAI_API_KEY,
     });
     const openai = new OpenAIApi(configuration);
     const response = await openai.createImage({
@@ -57,7 +57,7 @@ const ArtCat = () => {
   return (
     <div className={ styles['fullscreen'] }>
       <div className='container'>
-        <button className={ styles['backbutton'] }><img className={ styles['back-button-img'] } src={backButton} /></button>
+        <NavLink to='/'><button className={ styles['backbutton']}><img className={ styles['back-button-img'] } src={backButton} /></button></NavLink>
         <Header name={details['name']} img={details['img']} desc={details['desc']} type='chatpfp' />  
       </div>
 

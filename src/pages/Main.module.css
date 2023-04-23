@@ -21,3 +21,8 @@
   overflow: auto;
   background-color: #FFF4D2;
 }
+
+.navlink {
+  text-decoration: none;
+  color: black;
+}

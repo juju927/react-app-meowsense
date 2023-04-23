@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import pfp from '../images/MyCat.png'
-import backButton from '../images/BackButton.png'
+import { Link, NavLink } from "react-router-dom"
 import Header from '../components/Header'
 import InputBox from '../components/InputBox'
 import Chat from '../components/Chat'
+import pfp from '../images/MyCat.png'
+import backButton from '../images/BackButton.png'
 import styles from './Chatscreen.module.css'
 
 const MyCat = () => {
@@ -63,7 +64,7 @@ const MyCat = () => {
   return (
     <div className={ styles['fullscreen'] }>
       <div className='container'>
-        <button className={ styles['backbutton'] }><img className={ styles['back-button-img'] } src={backButton} /></button>
+        <NavLink to='/'><button className={ styles['backbutton'] }><img className={ styles['back-button-img'] } src={backButton} /></button></NavLink>
         <Header name={details['name']} img={details['img']} desc={details['desc']} type='chatpfp' />  
       </div>
 
