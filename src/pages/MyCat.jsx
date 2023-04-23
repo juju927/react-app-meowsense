@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import pfp from '../images/MyCat.png'
+import backButton from '../images/BackButton.png'
 import Header from '../components/Header'
 import InputBox from '../components/InputBox'
-import styles from './Chatscreen.module.css'
 import Chat from '../components/Chat'
-import backButton from '../images/BackButton.png'
+import styles from './Chatscreen.module.css'
 
 const MyCat = () => {
   const details = {

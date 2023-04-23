@@ -5,11 +5,11 @@ import styles from './ChatListItem.module.css'
 const ChatListItem = (props) => {
 
   return (
-    <div className={ styles['chatlist-item-container'] } onClick={()=> console.log(props.navlink)}>
+    <div className={ styles['chatlist-item-container'] } onClick={()=> console.log(props.navLink)}>
       <ProfilePic type='chatlistpfp' img={props.img} />
-      <div>
+      <div className={ styles['left'] }>
         <h1 className={ styles['name'] }>{props.name}</h1>
-        <i>probably the last message or something</i>
+        <i>powered by <a href={props.apiLink} target="_blank">{props.api}</a></i>
       </div>
     </div>
   )

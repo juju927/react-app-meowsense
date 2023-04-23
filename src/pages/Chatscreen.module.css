@@ -15,16 +15,13 @@
   width: 8%;
   border: none;
   background: none;
+  display: block;
+  z-index: 10;
+  position: absolute;
+  top: 30px;
+  font-size: 0.5rem;
 }
 
 .back-button-img {
   height: 50px;
-}
-
-.backbutton {
-  display: block;
-  z-index: 10;
-  position: absolute;
-  top: 5px;
-  font-size: 0.5rem;
 }
