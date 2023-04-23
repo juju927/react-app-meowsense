@@ -36,11 +36,11 @@ const InputBox = (props) => {
   
   useEffect(() => {
     // checks that the change in chatlog was due to user sending a newMessage here
-    // props.chatlog is also changed by getCat(), so useEffect will run when cat message sent
+    // props.chatlog is also changed by useApi(), so useEffect will run when cat message sent
     // but we only want it to run if the most previous change was due to user sending message
     if (newMessage.current) {
       // api call for cat image
-      props.getCat();
+      props.useApi(textAreaRef.current.value);
       // reset the text area
       textAreaRef.current.value = null;
       newMessage.current = false;

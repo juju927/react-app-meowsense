@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { Configuration, OpenAIApi } from 'openai';
 import pfp from '../images/ArtCat.png'
 import backButton from '../images/BackButton.png'
 import Header from '../components/Header'
@@ -13,12 +14,45 @@ const ArtCat = () => {
     'desc': 'excellent artist - but be patient, art takes time'
   }
 
+  const [artPiece, setArtPiece] = useState()
   const [chatlog, setChatlog] = useState([
     {'sender': 'cat',
     'type': 'text',
     'content': 'Give me something to draw, nya! /ᐠ ̥  ̮  ̥ ᐟ\\ฅ'},
    ])
 
+  const getArt = async(prompt) => {
+    const configuration = new Configuration({
+      
+      apiKey: import.meta.env.OPENAI_API_KEY,
+    });
+    const openai = new OpenAIApi(configuration);
+    const response = await openai.createImage({
+      prompt: prompt,
+      n: 1,
+      size: "512x512",
+    });
+
+    const data = await response;
+
+    if (response.status === 200) {
+      data.data.data.map((item, idx) => {
+        setArtPiece(item.url)})
+    } else {
+      const link = 'https://http.cat/' + response.status + '.jpg';
+      setArtPiece(link)
+    }
+  }
+
+  useEffect(()=> {
+    if (artPiece) {
+      // when catPic is updated (getCat() has run), update chatlog
+      setChatlog(currentLog => {
+        const updatedLog = [...currentLog, {'sender': 'cat', 'type': 'img', 'content': artPiece}];
+        return updatedLog 
+      })
+    }
+  }, [artPiece])
 
   return (
     <div className={ styles['fullscreen'] }>
@@ -30,9 +64,9 @@ const ArtCat = () => {
       <div className={`container ${styles['chatarea']}`}>
         <Chat chatlog={chatlog} />
       </div>
-
+    
       <div className='container'>
-        <InputBox chatlog={chatlog} setChatlog={setChatlog} />
+        <InputBox chatlog={chatlog} setChatlog={setChatlog} useApi={getArt}/>
       </div>
     </div>
   )

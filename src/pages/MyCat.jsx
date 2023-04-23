@@ -28,7 +28,9 @@ const MyCat = () => {
     // 'content': 'https://images.unsplash.com/photo-1529778873920-4da4926a72c2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3V0ZSUyMGNhdHxlbnwwfHwwfHw%3D&w=1000&q=80'}
   ])
 
-  const getCat = async() => {
+  console.log('catapi key', import.meta.env.THECATAPI_API_KEY)
+
+  const getCat = async(nothinghonestly) => {
     const res = await fetch('https://api.thecatapi.com/v1/images/search', {
           method: 'GET',
           headers: {
@@ -70,7 +72,7 @@ const MyCat = () => {
       </div>
 
       <div className='container'>
-        <InputBox chatlog={chatlog} setChatlog={setChatlog} getCat={getCat} />
+        <InputBox chatlog={chatlog} setChatlog={setChatlog} useApi={getCat} />
       </div>
     </div>
   )
