@@ -1,5 +1,4 @@
 import React from 'react'
-import { NavLink } from "react-router-dom"
 import ChatListItem from '../components/ChatListItem'
 import styles from './Main.module.css'
 import meowssengerHeader from '../images/meowssenger.png'
@@ -36,7 +35,7 @@ const Main = () => {
         <div className={`container ${styles['chatlistarea']}`}>
         {chatListDetails.map((item, index)=> {
           return(
-            <NavLink to={item.navLink} className={ styles['navlink'] }><ChatListItem key={`chatlist-item-${index}`} name={item.name} api={item.api} apiLink={item.apiLink} img={item.pfp} /></NavLink>
+            <ChatListItem key={`chatlist-item-${index}`} name={item.name} api={item.api} apiLink={item.apiLink} img={item.pfp} navLink={item.navLink}/>
         )})}
         </div>
       </div> 

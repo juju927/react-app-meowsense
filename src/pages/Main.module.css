@@ -17,12 +17,7 @@
 
 .chatlistarea {
   flex-grow: 1;
-  min-height: 0;
+  min-height: 100%;
   overflow: auto;
   background-color: #FFF4D2;
-}
-
-.navlink {
-  text-decoration: none;
-  color: black;
 }

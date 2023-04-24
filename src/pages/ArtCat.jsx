@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { NavLink } from "react-router-dom"
 import { Configuration, OpenAIApi } from 'openai';
 import Header from '../components/Header'
 import InputBox from '../components/InputBox'
 import Chat from '../components/Chat'
+import BackButton from '../components/BackButton';
 import styles from './Chatscreen.module.css'
 import pfp from '../images/ArtCat.png'
-import backButton from '../images/BackButton.png'
+
 
 const ArtCat = () => {
   const details = {
@@ -56,8 +56,8 @@ const ArtCat = () => {
 
   return (
     <div className={ styles['fullscreen'] }>
-      <div className='container'>
-        <NavLink to='/'><button className={ styles['backbutton']}><img className={ styles['back-button-img'] } src={backButton} /></button></NavLink>
+      <div className={`container ${styles['divrelative']}`}>
+        <BackButton />
         <Header name={details['name']} img={details['img']} desc={details['desc']} type='chatpfp' />  
       </div>
 

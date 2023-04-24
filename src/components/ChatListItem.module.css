@@ -19,3 +19,8 @@
   text-align: left;
   margin: 0;
 }
+
+.navlink {
+  text-decoration: none;
+  color: black;
+}
