@@ -1,44 +1,20 @@
-import React, { useState } from "react";
-import Message from "./components/Message";
-import MyCat from "./pages/MyCat";
+import React, { Suspense } from "react";
+import { Route, Routes } from "react-router-dom";
+import Main from './pages/Main'
+
+const MyCat = React.lazy(()=> import('./pages/MyCat'))
+const ArtCat = React.lazy(()=> import('./pages/ArtCat'))
 
 const App = () => {
-  const [errCat, setErrCat] = useState('');
-  const [goodCat, setGoodCat] = useState([]);
-
-  const getCat = async(tag='cute') => {
-    const res = await fetch('https://api.thecatapi.com/v1/images/search', {
-          method: 'GET',
-          headers: {
-            'Content-Type': "application/json",
-            'x-api-key': import.meta.env.THECATAPI_API_KEY,
-            'category-ids': 14
-          },
-        });
-      
-    const data = await res.json();
-    console.log(data)
-    
-    if (res.status === 200) {
-      setGoodCat(data)
-    } else {
-      const link = 'https://http.cat/' + res.status + '.jpg';
-      setErrCat(link)
-    }
-  }
-
   return (
     <div className="centered">
-      <button onClick={getCat}>CAT!!</button>
-      { errCat && <img src={errCat}></img>}
-      {goodCat.map((item, idx) => {
-        return (
-        <Message key={item.id} id={item.id} sender='cat' content={item.url}/>
-        )
-      })}
-      <MyCat />
-
-
+      <Suspense fallback={<p>loading...</p>}>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/my-cat" element={<MyCat />} />
+          <Route path="/art-cat" element={<ArtCat />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 }
