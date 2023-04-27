@@ -33,7 +33,7 @@ const MyCat = () => {
           method: 'GET',
           headers: {
             'Content-Type': "application/json",
-            'x-api-key': import.meta.env.THECATAPI_API_KEY,
+            'x-api-key': import.meta.env.VITE_THECATAPI_API_KEY,
           },
         });
       
