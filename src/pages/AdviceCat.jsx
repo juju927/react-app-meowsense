@@ -88,7 +88,7 @@ const MyCat = () => {
       const data = await res.json();
   
       if (data.message) {
-        setNewMessage("I don't think I haz any words of wisdom about that specifically... but meow-be chu'll like this one - ")
+        setNewMessage("I don't think I have any words of wisdom about that specifically... but maybe chu'll like this one - ")
         getRandomAdvice()
 
       } else {
