@@ -7,12 +7,6 @@ import pfp from '../images/MyCat.png'
 import styles from './Chatscreen.module.css'
 
 const MyCat = () => {
-  const details = {
-    'name': "Your Cat",
-    'img': pfp,
-    'desc': 'does not understand you'
-  }
-
   // current cat picture to be added to the chat
   const [catPic, setCatPic] = useState()
 
@@ -20,13 +14,13 @@ const MyCat = () => {
     {'sender': 'cat',
     'type': 'text',
     'content': '/ᐠ. ｡.ᐟ\\ᵐᵉᵒʷˎˊ˗'},
-    // {'sender': 'user',
-    // 'type': 'text',
-    // 'content': 'dum cat'},
-    // {'sender': 'cat',
-    // 'type': 'img',
-    // 'content': 'https://images.unsplash.com/photo-1529778873920-4da4926a72c2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3V0ZSUyMGNhdHxlbnwwfHwwfHw%3D&w=1000&q=80'}
-  ])
+ ])
+ 
+  const details = {
+    'name': "Your Cat",
+    'img': pfp,
+    'desc': 'does not understand you'
+  }
 
   const getCat = async(nothinghonestly) => {
     const res = await fetch('https://api.thecatapi.com/v1/images/search', {

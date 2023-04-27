@@ -9,18 +9,18 @@ import pfp from '../images/ArtCat.png'
 
 
 const ArtCat = () => {
-  const details = {
-    'name': "Leonyado da Kitty",
-    'img': pfp,
-    'desc': 'excellent artist - but be patient, art takes time'
-  }
-
   const [artPiece, setArtPiece] = useState()
   const [chatlog, setChatlog] = useState([
     {'sender': 'cat',
     'type': 'text',
     'content': 'Give me something to draw, nya! /ᐠ ̥  ̮  ̥ ᐟ\\ฅ'},
    ])
+
+  const details = {
+    'name': "Leonyado da Kitty",
+    'img': pfp,
+    'desc': 'excellent artist - but be patient, art takes time'
+  }
 
   const getArt = async(prompt) => {
     const configuration = new Configuration({

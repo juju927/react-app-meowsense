@@ -5,7 +5,6 @@ import Chat from '../components/Chat'
 import BackButton from '../components/BackButton'
 import pfp from '../images/AdviceCat.png'
 import styles from './Chatscreen.module.css'
-import CloudmersiveNlpApiClient from 'cloudmersive-nlp-api-client'
 
 const MyCat = () => {
   const [chatlog, setChatlog] = useState([
@@ -23,42 +22,36 @@ const MyCat = () => {
     'desc': 'wise cat of the pool'
   }
 
-  const getKeyword = async() => {
-    const res = await fetch('https://api.cloudmersive.com/nlp-v2/pos/tag/nouns', {
-      method: 'POST',
-      timeout: 0,
-      headers: {
-        'Content-Type': "application/json",
-        'Apikey': import.meta.env.VITE_CLOUDMERSIVE_API_KEY
-      },
-      data: {
-        'InputText': "hello i am dOG"
-      }
-    })
-
-    const data = await res.json();
-    console.log('get keyword data', data)
-  }
-
+  // sorry for the mess - i need it there to check, if the server ever comes back up :(
   // const getKeyword = async() => {
-  //   const defaultClient = CloudmersiveNlpApiClient.ApiClient.instance;
-
-  //   // Configure API key authorization: Apikey
-  //   const Apikey = defaultClient.authentications['Apikey'];
-  //   Apikey.apiKey = import.meta.env.VITE_CLOUDMERSIVE_API_KEY;
-
-  //   var apiInstance = new CloudmersiveNlpApiClient.PosTaggerApi();
-
-  //   var request = new CloudmersiveNlpApiClient.PosRequest(); // PosRequest | Input string
-    
-  //   var callback = function(error, data, response) {
-  //     if (error) {
-  //       console.error(error);
-  //     } else {
-  //       console.log('API called successfully. Returned data: ' + data);
+  //   const res = await fetch('https://api.cloudmersive.com/nlp-v2/pos/tag/nouns', {
+  //     method: 'POST',
+  //     timeout: 0,
+  //     headers: {
+  //       'Content-Type': "application/json",
+  //       'Apikey': import.meta.env.VITE_CLOUDMERSIVE_API_KEY
+  //     },
+  //     data: {
+  //       'InputText': "hello i am dOG"
   //     }
-  //   };
-  //   apiInstance.posTaggerTagNouns(request, callback);
+  //   })
+
+  //   const data = await res.json();
+  //   console.log('get keyword data', data)
+  // }
+
+  // const getSentiment = async() => {
+  //   const res = await fetch('https://api.cloudmersive.com/nlp-v2/analytics/sentiment', {
+  //     method: 'POST',
+  //     timeout: 0,
+  //     headers: {
+  //       'Content-Type': "application/json",
+  //       'Apikey': import.meta.env.VITE_CLOUDMERSIVE_API_KEY
+  //     },
+  //     data: {
+  //       'InputText': "you are a dog"
+  //     }
+  //   })
   // }
 
   const getRandomAdvice = async(nothingreally="") => {
@@ -92,7 +85,6 @@ const MyCat = () => {
         getRandomAdvice()
 
       } else {
-        console.log('else data', data)
         const rand_idx = Math.floor(Math.random() * data.total_results);
         console.log(rand_idx)
         setNewMessage(data.slips[rand_idx].advice)
@@ -109,6 +101,8 @@ const MyCat = () => {
     newText = newText.replace(/per/ig, 'purr')
     newText = newText.replace(/feeling/ig, 'feline')
     newText = newText.replace(/na/ig, 'nya')
+    newText = newText.replace(/the/ig, 'teh')
+    newText = newText.replace(/you/ig, 'chu')
     return newText
   }
 
