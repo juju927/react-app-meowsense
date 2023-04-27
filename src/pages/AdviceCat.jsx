@@ -5,6 +5,7 @@ import Chat from '../components/Chat'
 import BackButton from '../components/BackButton'
 import pfp from '../images/AdviceCat.png'
 import styles from './Chatscreen.module.css'
+import CloudmersiveNlpApiClient from 'cloudmersive-nlp-api-client'
 
 const MyCat = () => {
   const [chatlog, setChatlog] = useState([
@@ -22,7 +23,51 @@ const MyCat = () => {
     'desc': 'wise cat of the pool'
   }
 
-  const getRandomAdvice = async(nothingreally) => {
+  const getKeyword = async() => {
+    const res = await fetch('https://api.cloudmersive.com/nlp-v2/pos/tag/nouns', {
+      method: 'POST',
+      timeout: 0,
+      headers: {
+        'Content-Type': "application/json",
+        'Apikey': import.meta.env.VITE_CLOUDMERSIVE_API_KEY
+      },
+      data: {
+        'InputText': "hello i am dOG"
+      }
+    })
+
+    const data = await res.json();
+    console.log('get keyword data', data)
+  }
+
+  // const getKeyword = async() => {
+  //   const defaultClient = CloudmersiveNlpApiClient.ApiClient.instance;
+
+  //   // Configure API key authorization: Apikey
+  //   const Apikey = defaultClient.authentications['Apikey'];
+  //   Apikey.apiKey = import.meta.env.VITE_CLOUDMERSIVE_API_KEY;
+
+  //   var apiInstance = new CloudmersiveNlpApiClient.PosTaggerApi();
+
+  //   var request = new CloudmersiveNlpApiClient.PosRequest(); // PosRequest | Input string
+    
+  //   var callback = function(error, data, response) {
+  //     if (error) {
+  //       console.error(error);
+  //     } else {
+  //       console.log('API called successfully. Returned data: ' + data);
+  //     }
+  //   };
+  //   apiInstance.posTaggerTagNouns(request, callback);
+  // }
+
+
+
+
+
+
+
+  const getRandomAdvice = async(nothingreally="") => {
     const res = await fetch('https://api.adviceslip.com/advice')
     const data = await res.json();
 
@@ -39,7 +84,7 @@ const MyCat = () => {
       setNewMessage(link)
     }
   }
-  
+
   const getSearchedAdvice = async(prompt) => {
     if (prompt.includes("cat")) {
       setNewMessage(`“Cats rule the world.” – Jim Davis.
@@ -49,12 +94,15 @@ const MyCat = () => {
       const data = await res.json();
   
       if (data.message) {
-        setNewMessage("I don't think I have any words of wisdom about that...")
+        setNewMessage("I don't think I have any words of wisdom about that specifically... but maybe you'll like this one - ")
+        getRandomAdvice()
+
       } else {
         console.log('else data', data)
         const rand_idx = Math.floor(Math.random() * data.total_results);
         console.log(rand_idx)
         setNewMessage(data.slips[rand_idx].advice)
+        setCurrentAdvice(data.slips[rand_idx].advice)
       }
     }
   }
@@ -82,7 +130,7 @@ const MyCat = () => {
       </div>
 
       <div className='container'>
-        <InputBox chatlog={chatlog} setChatlog={setChatlog} useApi={getSearchedAdvice} getRandomAdvice={getRandomAdvice}/>
+        <InputBox chatlog={chatlog} setChatlog={setChatlog} useApi={getKeyword} getRandomAdvice={getRandomAdvice}/>
       </div>
     </div>
   )

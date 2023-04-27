@@ -4,6 +4,7 @@ import styles from './Main.module.css'
 import meowssengerHeader from '../images/meowssenger.png'
 import myCatPic from '../images/MyCat.png'
 import artCatPic from '../images/ArtCat.png'
+import adviceCatPic from '../images/AdviceCat.png'
 
 const Main = () => {
   const chatListDetails = [
@@ -19,7 +20,12 @@ const Main = () => {
       'api': 'DALL-E 2',
       'apiLink': 'https://openai.com/product/dall-e-2',
       'navLink': '/art-cat'},
-    
+
+    {'name': 'Catfucius',
+      'pfp': adviceCatPic,
+      'api': 'Advice Slip JSON API',
+      'apiLink': 'https://api.adviceslip.com/',
+      'navLink': '/advice-cat'}, 
 
   ]
    
