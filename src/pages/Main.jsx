@@ -5,10 +5,11 @@ import meowssengerHeader from '../images/meowssenger.png'
 import myCatPic from '../images/MyCat.png'
 import artCatPic from '../images/ArtCat.png'
 import adviceCatPic from '../images/AdviceCat.png'
+import feelingCatPic from '../images/FeelingCat.png'
+import jokeCatPic from '../images/DadCat.png'
 
 const Main = () => {
   const chatListDetails = [
-    // add router links later
     {'name': 'My Cat',
       'pfp': myCatPic,
       'api': 'TheCatAPI',
@@ -26,7 +27,20 @@ const Main = () => {
       'api': 'Advice Slip JSON API',
       'apiLink': 'https://api.adviceslip.com/',
       'navLink': '/advice-cat'}, 
-  ]
+
+    {'name': 'Mom Cat',
+    'pfp': feelingCatPic,
+    'api': 'GIPHY',
+    'apiLink': 'https://giphy.com/',
+    'navLink': '/feeling-cat'}, 
+
+    {'name': 'Dad Cat',
+    'pfp': jokeCatPic,
+    'api': 'icanhazdadjoke',
+    'apiLink': 'https://icanhazdadjoke.com/api',
+    'navLink': '/joke-cat'}, 
+    ]
+
    
   return (
     <div className={ styles['fullscreen'] }>
