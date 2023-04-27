@@ -19,16 +19,18 @@ powered by [DALL-E 2](https://openai.com/product/dall-e-2)
 
 3. **Catfucius**  
 this cat will reply you with words of wisdom  
+it will try to match your text to a wisdom slip  
+otherwise, it'll give a random piece of wisdom  
 powered by [Advice Slip](https://api.adviceslip.com/)  
 
 4. **Mom Cat**  
 this cat will reply you with cat (hopefully) gifs!  
-it was *supposed* to be able to give your text a sentiment score...  
+it was *supposed* to be able to give your text a sentiment score and respond accordingly, but...   
 but because of some difficulties, that might only be available in the future  
 powered by [GIPHY](https://giphy.com/)  
 
 5. **Dad Cat**  
-this cat will give you dad jokes  
+this cat will give you random dad jokes  
 great  
 powered by [icanhazdadjoke](https://icanhazdadjoke.com/api)
 
