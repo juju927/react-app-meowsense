@@ -26,7 +26,6 @@ const Main = () => {
       'api': 'Advice Slip JSON API',
       'apiLink': 'https://api.adviceslip.com/',
       'navLink': '/advice-cat'}, 
-
   ]
    
   return (
@@ -41,7 +40,7 @@ const Main = () => {
         <div className={`container ${styles['chatlistarea']}`}>
         {chatListDetails.map((item, index)=> {
           return(
-            <ChatListItem key={`chatlist-item-${index}`} name={item.name} api={item.api} apiLink={item.apiLink} img={item.pfp} navLink={item.navLink}/>
+            <ChatListItem key={`chatlist-item-${index}`} name={item.name} api={item.api} apiLink={item.apiLink} img={item.pfp} navLink={item.navLink} />
         )})}
         </div>
       </div> 

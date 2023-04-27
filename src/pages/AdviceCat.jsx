@@ -61,12 +61,6 @@ const MyCat = () => {
   //   apiInstance.posTaggerTagNouns(request, callback);
   // }
 
-
-
-
-
-
-
   const getRandomAdvice = async(nothingreally="") => {
     const res = await fetch('https://api.adviceslip.com/advice')
     const data = await res.json();
@@ -94,7 +88,7 @@ const MyCat = () => {
       const data = await res.json();
   
       if (data.message) {
-        setNewMessage("I don't think I have any words of wisdom about that specifically... but maybe you'll like this one - ")
+        setNewMessage("I don't think I haz any words of wisdom about that specifically... but meow-be chu'll like this one - ")
         getRandomAdvice()
 
       } else {
@@ -107,11 +101,22 @@ const MyCat = () => {
     }
   }
 
+  const catify = (text) => {
+    var newText = text;
+    newText = newText.replace(/have|has/ig, 'haz')
+    newText = newText.replace(/me|mo|mu|may|now/ig, 'meow')
+    newText = newText.replace(/po|pu|aw/ig, 'paw')
+    newText = newText.replace(/per/ig, 'purr')
+    newText = newText.replace(/feeling/ig, 'feline')
+    newText = newText.replace(/na/ig, 'nya')
+    return newText
+  }
+
   useEffect(()=> {
     if (newMessage) {
       // when catPic is updated (getCat() has run), update chatlog
       setChatlog(currentLog => {
-        const updatedLog = [...currentLog, {'sender': 'cat', 'type': 'text', 'content': newMessage}];
+        const updatedLog = [...currentLog, {'sender': 'cat', 'type': 'text', 'content': catify(newMessage)}];
         return updatedLog 
       })
       setNewMessage()
@@ -130,7 +135,7 @@ const MyCat = () => {
       </div>
 
       <div className='container'>
-        <InputBox chatlog={chatlog} setChatlog={setChatlog} useApi={getKeyword} getRandomAdvice={getRandomAdvice}/>
+        <InputBox chatlog={chatlog} setChatlog={setChatlog} useApi={getSearchedAdvice} getRandomAdvice={getRandomAdvice}/>
       </div>
     </div>
   )
