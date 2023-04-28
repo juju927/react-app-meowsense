@@ -13,7 +13,6 @@ const MyCat = () => {
     'content': '/ᐠ_ ꞈ _ᐟ\\ɴʏᴀ~'},
      ])
 
-  const [currentAdvice, setCurrentAdvice] = useState()
   const [newMessage, setNewMessage] = useState() 
      
   const details = {
@@ -59,13 +58,7 @@ const MyCat = () => {
     const data = await res.json();
 
     if (res.status === 200) {
-      console.log("random advice data", data)
-      if (data.slip.advice == currentAdvice) {
-        setNewMessage("stop spamming >:( wisdom comes with patience...")
-      } else {
-        setNewMessage(data.slip.advice)
-        setCurrentAdvice(data.slip.advice)
-      }
+      setNewMessage(data.slip.advice)
     } else {
       const link = 'https://http.cat/' + res.status + '.jpg';
       setNewMessage(link)
@@ -81,14 +74,12 @@ const MyCat = () => {
       const data = await res.json();
   
       if (data.message) {
-        setNewMessage("I don't think I have any words of wisdom about that specifically... but maybe chu'll like this one - ")
+        setNewMessage("I don't think I have any words of wisdom about that specifically... but maybe you'll like this one - ")
         getRandomAdvice()
 
       } else {
         const rand_idx = Math.floor(Math.random() * data.total_results);
-        console.log(rand_idx)
         setNewMessage(data.slips[rand_idx].advice)
-        setCurrentAdvice(data.slips[rand_idx].advice)
       }
     }
   }
